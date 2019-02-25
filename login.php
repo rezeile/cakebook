@@ -1,8 +1,21 @@
 <?php
 function authenticateUser($username, $password) {
-  // try to loging to the DP, error out if not possible
-  print "Haha I know your Username: ".$username."\n";
-  print "and Password: ".$password;
+  $conn = new mysqli("localhost", "eliezerabate", "password", "CakebookDB");
+  if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+  }
+  $sql = "SELECT firstName, username, password FROM Account WHERE username = '$username' AND password = '$password'";
+  $result = $conn->query($sql);
+  if ($result->num_rows > 0) {
+    while($row = $result->fetch_assoc()) {
+      echo "Welcome " . $row["firstName"] . " :) I wubbbbbbb you very much. And I want to make wub to you";
+      echo "<img src='bear.gif'>";
+    }
+  } else {
+    echo $sql;
+  }
+  $conn->close();
 }
+
 authenticateUser($_POST["username"],$_POST["password"]);
 ?>
