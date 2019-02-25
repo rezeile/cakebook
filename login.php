@@ -8,8 +8,7 @@ function authenticateUser($username, $password) {
   $result = $conn->query($sql);
   if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
-      echo "Welcome " . $row["firstName"] . " :) I wubbbbbbb you very much. And I want to make wub to you";
-      echo "<img src='bear.gif'>";
+      echo "Welcome " . $row["firstName"] . "\n"; 
     }
   } else {
     echo $sql;
