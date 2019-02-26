@@ -32,7 +32,7 @@ return <<<HTML
         <form action="post.php" action="post">
           <label for="post">Create Post:</label> 
           <input type="textarea" name="post">
-          <input type="submit" name="Post">
+          <input type="submit" name="Post" value="Post">
         </form>
         <main id="feed">NewsFeed</main>
       </section>
